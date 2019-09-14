@@ -17,3 +17,69 @@
     <div class="right-button"> > </div>
   </div>
 */
+
+images = [['./assets/carousel/mountains.jpeg','mountains'],
+['./assets/carousel/computer.jpeg','computer'],
+['./assets/carousel/trees.jpeg','trees'],
+['./assets/carousel/turntable.jpeg','turntable']]
+
+addCarousel = () => {
+  carouselIndex = 0;
+  carousel = document.createElement('div')
+  left = document.createElement('div')
+  img = document.createElement('img')
+  //img2 = document.createElement('img')
+  //img3 = document.createElement('img')
+  //img4 = document.createElement('img')
+  right = document.createElement('div')
+
+  carousel.appendChild(left)
+  carousel.appendChild(img)
+  //carousel.appendChild(img2)
+  //carousel.appendChild(img3)
+  //carousel.appendChild(img4)
+  carousel.appendChild(right)
+
+  img.setAttribute('src', images[carouselIndex][0])
+  //img2.setAttribute('src', './assets/carousel/computer.jpeg')
+  //img3.setAttribute('src', './assets/carousel/trees.jpeg')
+  //img4.setAttribute('src', './assets/carousel/turntable.jpeg')
+
+  img.setAttribute('alt', images[carouselIndex][1])
+  //img2.setAttribute('alt', 'computer')
+  //img3.setAttribute('alt', 'trees')
+  //img4.setAttribute('alt', 'turntable')
+
+  img.classList.add('show')
+
+  carousel.classList.add('carousel')
+  left.classList.add('left-button')
+  right.classList.add('right-button')
+
+  left.addEventListener('click', x => {
+    //console.log('left')
+    if(carouselIndex == 0){
+      
+      carouselIndex = images.length - 1
+    }else{
+      carouselIndex--
+    }
+    img.setAttribute('src', images[carouselIndex][0])
+    img.setAttribute('alt', images[carouselIndex][1])
+  })
+  right.addEventListener('click', x => {
+    if(carouselIndex == images.length -1){
+      carouselIndex = 0
+    }else{
+      carouselIndex++
+    }
+    img.setAttribute('src', images[carouselIndex][0])
+    img.setAttribute('alt', images[carouselIndex][1])
+  })
+
+  return carousel
+}
+
+carouselContainer = document.querySelector('.carousel-container')
+
+carouselContainer.appendChild(addCarousel())
