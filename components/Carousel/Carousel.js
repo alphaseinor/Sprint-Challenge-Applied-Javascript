@@ -44,6 +44,8 @@ addCarousel = () => {
   img3.setAttribute('alt', 'trees')
   img4.setAttribute('alt', 'turntable')
 
+  img1.classList.add('show')
+
   carousel.classList.add('carousel')
   left.classList.add('left-button')
   right.classList.add('right-button')
