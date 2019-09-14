@@ -35,19 +35,31 @@ createCard = (arr) =>{
   
   //set content
   cardAuthorImg.setAttribute('src', arr.authorPhoto)
-  
+  cardAuthorImg.setAttribute('alt', arr.authorName)
+  cardAuthorName.textContent = `By ${arr.authorName}`
+  cardHeadline.textContent = arr.headline
 
+  //set style
+  card.classList.add('card')
+  cardHeadline.classList.add('headline')
+  cardAuthor.classList.add('author')
+  cardAuthorImgContainer.classList.add('img-container')
 
+  return card
 }
 
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
   .then(arr =>{
     //console.log(arr.data.articles)
-
+    bodySelector = document.querySelector('body')
+    
     articleKeys = Object.keys(arr.data.articles)
     
     articleKeys.forEach(element => {
-      console.log(arr.data.articles[element])
+      //console.log(arr.data.articles[element])
+      arr.data.articles[element].forEach(x => {
+        bodySelector.appendChild(createCard(x))
+      })
     });
 
     // arr.data.articles.forEach(element => {
