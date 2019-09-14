@@ -58,11 +58,20 @@ addCarousel = () => {
 
   left.addEventListener('click', x => {
     //go back one, or go to the top
-    console.log(images[0][0])
+    //console.log(images[0][0])
     //img.setAttribute('src', images[0][1])
+    console.log('left')
+    if(carouselIndex == 0){
+      
+      carouselIndex = images.length - 1
+    }else{
+      carouselIndex--;
+    }
+    img.setAttribute('src', images[carouselIndex][0])
+    img.setAttribute('alt', images[carouselIndex][1])
   })
   right.addEventListener('click', x => {
-    console.log(images[1][0])
+    //console.log(images[1][0])
     //go forward one, or go to the beginning
     //img.setAttribute('src', images[0][0])
   })
