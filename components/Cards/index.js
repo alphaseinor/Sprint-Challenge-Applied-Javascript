@@ -18,6 +18,25 @@
 //
 // Create a card for each of the articles and add the card to the DOM.
 createCard = (arr) =>{
+  //elements
+  card = document.createElement('div')
+  cardHeadline = document.createElement('div')
+  cardAuthor = document.createElement('div')
+  cardAuthorImgContainer = document.createElement('div')
+  cardAuthorImg = document.createElement('img')
+  cardAuthorName = document.createElement('span')
+
+  //structure
+  cardAuthorImgContainer.appendChild(cardAuthorImg)
+  cardAuthor.appendChild(cardAuthorImgContainer)
+  cardAuthor.appendChild(cardAuthorName)
+  card.appendChild(cardHeadline)
+  card.appendChild(cardAuthor)
+  
+  //set content
+  cardAuthorImg.setAttribute('src', arr.authorPhoto)
+  
+
 
 }
 
