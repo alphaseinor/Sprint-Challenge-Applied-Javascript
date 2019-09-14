@@ -18,7 +18,7 @@
   </div>
 */
 
-addCarousel => {
+addCarousel = () => {
   carousel = document.createElement('div')
   left = document.createElement('div')
   img1 = document.createElement('img')
@@ -44,11 +44,13 @@ addCarousel => {
   img3.setAttribute('alt', 'trees')
   img4.setAttribute('alt', 'turntable')
 
-  carousel.setAttribute.add('carousel')
-  left.setAttribute.add('left-button')
-  right.setAttribute.add('right-button')
+  carousel.classList.add('carousel')
+  left.classList.add('left-button')
+  right.classList.add('right-button')
 
   return carousel
 }
 
+carouselContainer = document.querySelector('.carousel-container')
 
+carouselContainer.appendChild(addCarousel())
