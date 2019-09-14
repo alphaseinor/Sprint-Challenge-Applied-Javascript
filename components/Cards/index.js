@@ -51,14 +51,14 @@ createCard = (arr) =>{
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
   .then(arr =>{
     //console.log(arr.data.articles)
-    bodySelector = document.querySelector('body')
+    cardsContainer = document.querySelector('.cards-container')
     
     articleKeys = Object.keys(arr.data.articles)
     
     articleKeys.forEach(element => {
       //console.log(arr.data.articles[element])
       arr.data.articles[element].forEach(x => {
-        bodySelector.appendChild(createCard(x))
+        cardsContainer.appendChild(createCard(x))
       })
     });
 
